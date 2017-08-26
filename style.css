@@ -1,0 +1,12 @@
+.block {
+    border: 1.5px solid;
+    border-radius:20px;
+    border-color:black;
+    overflow:hidden;
+    background: rgba(25, 25, 25, .7);
+    opacity:50%;
+}
+
+.blockText {
+    color: #ffffff;
+}
