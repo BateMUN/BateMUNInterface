@@ -2,7 +2,7 @@
 var committee1 = {
     name: "Security Council",
     topics: ["Syrian Refugee Crisis", "Nuclear War"],
-    countries: ["USA", "China", "United Kingdom", "Russia", "France"]
+    countries: ["USA", "China", "United Kingdom", "Russia", "France", "Bolivia", "Egypt", "Ethiopia", "Italy", "Japan", "Kazakhstan", "Senegal", "Sweden", "Ukraine", "Uruguay"]
 };
 
 //Committe 2 of the BateMUN Conference and all the relevant details
@@ -88,6 +88,12 @@ function changeMembers() {
     for (var i = 0; i < committes[currentCommittee].countries.length; i++) {
         document.getElementById("member"+i).innerHTML = committes[currentCommittee].countries[i];
     }
+
+    if (committes[currentCommittee].countries.length < 15) {
+        for (var i = committes[currentCommittee].countries.length; i < 15; i++) {
+            document.getElementById("member"+i).innerHTML = "";
+        }
+    }
 }
 
 function addSpeaker(country) {
@@ -166,6 +172,10 @@ function formatTime(time) {
 function show() {
     $time = document.getElementById('time');
     update();
+
+    for(keys in committes) {
+        committes[keys].countries.sort();
+    }
 }
 
 function update() {
