@@ -1,26 +1,12 @@
 //Committe 1 of the BateMUN Conference and all the relevant details
 var committee1 = {
-    name: "Security Council",
-    topics: ["Syrian Refugee Crisis", "Nuclear War"],
-    countries: ["USA", "China", "United Kingdom", "Russia", "France", "Bolivia", "Egypt", "Ethiopia", "Italy", "Japan", "Kazakhstan", "Senegal", "Sweden", "Ukraine", "Uruguay"]
-};
-
-//Committe 2 of the BateMUN Conference and all the relevant details
-var committee2 = {
-    name: "UNEP",
-    topics: ["Deforestation", "Carbon Emissions"],
-    countries: ["Canada", "Brazil", "Indonesia", "Japan", "OPEC"]
-};
-
-//Committe 3 of the BateMUN Conference and all the relevant details
-var committee3 = {
-    name: "UNTTF - Crisis",
-    topics: ["Nuclear War", "ISIS/ISIL"],
-    countries: ["Khalid", "Yash", "Aidan", "Shaheer", "Kira"]
+    name: "General Assembly",
+    topics: ["Freedom of Information"],
+    countries: ["Panama", "Mexico", "Canada", "USA", "Switzerland", "Denmark", "Argentina", "Venezuela", "Peru", "Kazakhstan", "Russia", "Ukraine", "France", "Iceland", "United Kingdom", "Brazil", "Guatamala", "China", "Egypt", "UAE", "Saudi Arabia", "Israel", "Angola", "Republic of Congo", "Rwanda", "Sotuh Africa", "Pakistan", "Germany", "Sweden", "India", "Kenya"]
 };
 
 //array to store all committees
-var committes = [committee1, committee2, committee3];
+var committes = [committee1];
 
 //various indices and variables to keep track of changes
 var currentCommittee = 0;
