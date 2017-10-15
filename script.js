@@ -149,6 +149,10 @@ var x = new clsStopwatch();
 var $time;
 var clocktimer;
 
+var y = new clsStopwatch();
+var $fullTime;
+var fullClockTimer;
+
 function pad(num, size) {
     var s = "0000" + num;
     return s.substr(s.length - size);
