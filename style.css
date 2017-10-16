@@ -64,7 +64,7 @@ textarea{
     text-align:center;
     margin-top:0%;
 }
-#timer{
+#timer, #debateTimer{
 
     font-family:'Helvetica Neue';
     font-size:10.5vh;
@@ -124,7 +124,7 @@ textarea{
     left:80%;
 }
 
-#timer{
+#timer {
     top:77.5%;
     width:49%;
     left:50%;
@@ -134,4 +134,45 @@ textarea{
 
 .memberText:hover {
     text-decoration: underline;
+}
+
+#secondaryTimerRow {
+    display: none;
+}
+
+#debateTimer {
+    position:absolute;
+    width:48.5%;
+    /*left:50%;*/
+    height:21%;
+}
+
+#debateTimeButton {
+    position:absolute;
+    width:25%;
+    height:37%;
+    bottom:0%;
+    left:75%;
+}
+
+#startDebatebutton {
+    position:absolute;
+    width:25%;
+    height:37%;
+    bottom:0%;
+    left:0;
+}
+#stopDebatebutton {
+    position:absolute;
+    width:25%;
+    height:37%;
+    bottom:0%;
+    left:25%;
+}
+#resetDebatebutton {
+    position:absolute;
+    width:25%;
+    height:37%;
+    bottom:0%;
+    left:50%;
 }

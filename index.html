@@ -24,7 +24,7 @@
                 <p class="blockText" id="debateText" onload="loadDebate()" onclick="changeDebate()">Formal Consideration</p>
             </div>
 
-            <div class="row block">
+            <div class="row block" id="memberRow">
 
                 <h2>Countries/Committee Members</h2>
                 <hr />
@@ -52,7 +52,7 @@
 
             </div>
 
-            <div class="row block">
+            <div class="row block" id="speakerRow">
 
                 <h2>Speakers List</h2>
 
@@ -79,6 +79,16 @@
 
 
             </div>
+            
+            <div class="row" id="secondaryTimerRow">
+                <div id="debateTimer" class="block">
+                    <div id="timerholder"><span id="debateTime"></span></div>
+                    <input type="button" id="startDebatebutton" class="clickbutton" value="Start" onclick="startDebate()">
+                    <input type="button" id="stopDebatebutton" class="clickbutton" value="Stop" onclick="stopDebate()">
+                    <input type="button" value="Reset" class="clickbutton" id="resetDebatebutton" onclick="resetDebate()">
+                    <input type="button" value="Set Debate Time" class="clickbutton" id="debateTimeButton" onclick="setDebateTime()">
+                </div>
+            </div>
 
         </div>
 
@@ -95,6 +105,7 @@
                     <input type="button" value="Reset" class="clickbutton" id="resetbutton" onclick="reset()">
                     <input type="button" value="Set Speak Time" class="clickbutton" id="speakTimeButton" onclick="setSpeakingTime()">
                     <input type="button" value="Speak" class="clickbutton" id="speakButton" onclick="speak()">
+
                 </div>
             </div>
 
