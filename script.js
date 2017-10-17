@@ -12,8 +12,6 @@ var committee2 = {
     countries: ["China", "USA", "India", "North Korea", "Russia", "Brazil", "Mexico", "United Kingdom", "Germany", "South Africa", "Niger", "Egypt", "South Korea", "Saudi Arabia", "Iran"]
 };
 
-//Committe 3 of the BateMUN Conference and all the relevant details
-
 //array to store all committees
 var committes = [committee1, committee2];
 
@@ -22,7 +20,7 @@ var currentCommittee = 0;
 var currentTopic = 0;
 var numSpeakers = 0;
 var speakingTime = 30;
-
+var debateTime = 600;
 //different types of debates and a debate index to keep track of debates
 var debates = ["Formal Consideration", "Moderated Caucus", "Unmoderated Caucus", "Round Table", "For and Against", "Resolution Presentation", "Resolution voting", "other"];
 var currentDebate = 0;
@@ -69,10 +67,24 @@ function changeCommitteeTopic() {
 function changeDebate () {
     if (currentDebate === debates.length - 1) {
         currentDebate = 0;
+        changeLayout();
     } else {
         currentDebate++;
+        changeLayout();
     }
     document.getElementById("debateText").innerHTML = debates[currentDebate];
+}
+
+function changeLayout() {
+    if (currentDebate == 0) {
+        document.getElementById('memberRow').style.display = "block";
+        document.getElementById('speakerRow').style.display = "block";
+        document.getElementById('secondaryTimerRow').style.display = "none";
+    } else {
+        document.getElementById('memberRow').style.display = "none";
+        document.getElementById('speakerRow').style.display = "none";
+        document.getElementById('secondaryTimerRow').style.display = "block";
+    }
 }
 
 function loadMembers() {
@@ -115,6 +127,9 @@ function setSpeakingTime() {
     speakingTime = prompt("What is the speaking time", speakingTime);
 }
 
+function setDebateTime() {
+    debateTime = prompt("How long is the debate", debateTime);
+}
 var clsStopwatch = function() {
     var startAt = 0;
     var lapTime = 0;
@@ -144,6 +159,10 @@ var x = new clsStopwatch();
 var $time;
 var clocktimer;
 
+var debateTimer = new clsStopwatch();
+var $debateTime;
+var debateClockTime;
+
 function pad(num, size) {
     var s = "0000" + num;
     return s.substr(s.length - size);
@@ -166,6 +185,8 @@ function formatTime(time) {
 
 function show() {
     $time = document.getElementById('time');
+    $debateTime = document.getElementById('debateTime');
+    updateDebate();
     update();
 
     for(keys in committes) {
@@ -209,6 +230,44 @@ function checkTime(){
             alert("Times Up");
             reset();
             clearInterval(timerId);
+        }              //  ..  setTimeout()
+    }, 200)
+
+}
+
+function updateDebate() {
+    $debateTime.innerHTML = formatTime((debateTimer.time()));
+}
+
+function startDebate() {
+    resetDebate();
+    debateClockTime = setInterval("updateDebate()", 1);
+    debateTimer.start();
+    checkDebateTime();
+}
+
+function stopDebate() {
+    debateTimer.stop();
+    clearInterval(debateClockTime);
+}
+
+function resetDebate() {
+    stopDebate();
+    debateTimer.reset();
+    updateDebate();
+}
+
+function checkDebateTime(){
+    var debateTimerId = setTimeout(function () {    //  call a 3s setTimeout when the loop is called
+        var myDebateSeconds = Math.floor(debateTimer.time() / 1000 );                     //  increment the counter
+        if (myDebateSeconds<debateTime) {            //  if the counter < 10, call the loop function
+            checkDebateTime();             //  ..  again which will trigger another
+        }else{
+            stopDebate();
+            stop();
+            alert("Times Up");
+            resetDebate();
+            clearInterval(debateTimerId);
         }              //  ..  setTimeout()
     }, 200)
 
