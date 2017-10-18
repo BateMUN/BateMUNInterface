@@ -77,12 +77,12 @@ function changeDebate () {
 
 function changeLayout() {
     if (currentDebate == 0) {
-        document.getElementById('memberRow').style.display = "block";
         document.getElementById('speakerRow').style.display = "block";
+        document.getElementById('committeeMembers').style.height = "181px";
         document.getElementById('secondaryTimerRow').style.display = "none";
     } else {
-        document.getElementById('memberRow').style.display = "none";
         document.getElementById('speakerRow').style.display = "none";
+        document.getElementById('committeeMembers').style.height = "298px";
         document.getElementById('secondaryTimerRow').style.display = "block";
     }
 }
