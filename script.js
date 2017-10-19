@@ -130,6 +130,7 @@ function setSpeakingTime() {
 function setDebateTime() {
     debateTime = prompt("How long is the debate", debateTime);
 }
+
 var clsStopwatch = function() {
     var startAt = 0;
     var lapTime = 0;
